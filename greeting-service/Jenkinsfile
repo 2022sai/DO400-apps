@@ -1,44 +1,65 @@
 pipeline{
+
     agent{
+
         label "nodejs"
+
     }
+
     stages{
+
         stage("Install dependencies"){
+
             steps{
+
                 sh "npm ci"
+
             }
+
         }
+
+
 
         stage("Check Style"){
+
             steps{
+
                 sh "npm run lint"
+
             }
+
         }
+
+
 
         stage("Test"){
+
             steps{
+
                 sh "npm test"
+
             }
+
         }
 
 
 
-stage('Deploy') {
+        stage('Deploy') {
 
-steps {
+            steps {
 
-sh '''
+                sh '''
 
-oc project oqrvvr-deploy-strategies
+                oc project moyuqh-greetings
 
-oc start-build greeting-service --follow --wait
+                oc start-build greeting-service --follow --wait
 
-'''
+                '''
 
-  }
+            }
 
+        }
 
-
-        }  // Add the "Deploy" stage here
     }
+
 }
