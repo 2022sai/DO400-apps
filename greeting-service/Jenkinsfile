@@ -9,7 +9,7 @@ pipeline{
 
                 sh '''
 
-                oc project moyuqh-greetings
+                oc project oqrvvr-deploy-strategies
 
                 oc start-build greeting-service --follow --wait
 
